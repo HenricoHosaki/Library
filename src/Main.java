@@ -65,10 +65,29 @@ public class Main {
                 } else {
                     System.out.println("Livro não encontrado.");
                 }
-
+            break;
 
             case 4:
-                break;
+                System.out.println("Devolver");
+                System.out.println("Digite o id do livro");
+                int devolver = sc.nextInt();
+
+                Book devolve = book.stream()
+                        .filter(b -> b.getId() == devolver)
+                        .findFirst()
+                        .orElse(null);
+
+                if (devolve != null) {
+                    if (devolve.isEmprestado()) {
+                        devolve.setBorrowed(false);
+                        System.out.println("Livro devolvido: " + devolve.getName());
+                    } else {
+                        System.out.println("Este livro não estava emprestado.");
+                    }
+                } else {
+                    System.out.println("Livro não encontrado.");
+                }
+            break;
 
             case 5:
                 sc.close();
