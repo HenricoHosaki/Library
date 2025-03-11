@@ -46,7 +46,7 @@ public class Main {
                 break;
 
             case 3:
-                System.out.println("Teste");
+                System.out.println("Teste1");
                 break;
 
             case 4:
