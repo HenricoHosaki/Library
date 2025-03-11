@@ -46,8 +46,26 @@ public class Main {
                 break;
 
             case 3:
-                System.out.println("Teste1");
-                break;
+                System.out.println("Emprestar");
+                System.out.println("Digite o id do livro");
+                int emprestar = sc.nextInt();
+
+                Book emprestimo = book.stream()
+                        .filter(b -> b.getId() == emprestar)
+                        .findFirst()
+                        .orElse(null);
+
+                if (emprestimo != null) {
+                    if (!emprestimo.isEmprestado()) {
+                        emprestimo.setBorrowed(true);
+                        System.out.println("Livro emprestado: " + emprestimo.getName());
+                    } else {
+                        System.out.println("Livro já emprestado.");
+                    }
+                } else {
+                    System.out.println("Livro não encontrado.");
+                }
+
 
             case 4:
                 break;

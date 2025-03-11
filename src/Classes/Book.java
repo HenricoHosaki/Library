@@ -12,6 +12,7 @@ public class Book {
     public Book(String name, int id) {
         this.name = name;
         this.id = id;
+        isBorrowed = false;
     }
 
     public String getName() {
@@ -38,8 +39,12 @@ public class Book {
         isBorrowed = borrowed;
     }
 
+    public boolean isEmprestado() {
+        return isBorrowed;
+    }
+
     @Override
     public String toString() {
-        return "Book | " + name + " | " + id;
+        return "Book | " + name + " | " + id + " | " + isBorrowed;
     }
 }
